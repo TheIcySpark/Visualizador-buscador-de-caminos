@@ -1,0 +1,12 @@
+.cuadricula{
+    display: inline;
+}
+
+.celda{
+    border-width: 1.5px;
+    border-style: solid;
+    border-color: #e16428;
+    background-color: #f6e9e9;
+    height: 35px;
+    width: 100%;
+}

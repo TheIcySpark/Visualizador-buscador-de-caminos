@@ -4,18 +4,18 @@ import imagenAyuda from '../imagenes/ayudar.png';
 import imagenGithub from '../imagenes/github.png';
 
 export default class BarraSuperior extends React.Component{
-
     render(){
         return(
-            <div>
-                <input type = 'image' src = {imagenAyuda}></input>
-                <select value = 'algoritmo 1'>
+            <div className = 'd-flex justify-content-between'>
+                <div className = ''>
+                    <input type = 'image' src = {imagenAyuda}></input>
+                </div>
+                <select value = 'algoritmo 1' className = 'bg-dark text-white  h-50'>
                     <option value = 'algoritmo 1'>
                         algoritmo 1
                     </option>
                 </select>
-                Velocidad: 
-                <select value = 'rapido' >
+                <select className = 'bg-dark text-white  h-50' >
                     <option value = 'lento'>
                         lento
                     </option>
@@ -26,24 +26,24 @@ export default class BarraSuperior extends React.Component{
                         rapido
                     </option>
                 </select>
-                <DropdownButton title = 'Patron de caminos'>
+                <DropdownButton title = 'Patron de caminos' className = 'h-50' variant = 'info'>
                     <Dropdown.Item>Patron 1</Dropdown.Item>
                     <Dropdown.Item>Patron 2</Dropdown.Item>
                     <Dropdown.Item>Patron 3</Dropdown.Item>
                 </DropdownButton>
-                <Button>
+                <Button className = 'h-50 ' variant = 'info'>
                     Reiniciar cuadricula
                 </Button>
-                <Button>
+                <Button className = 'h-50 ' variant = 'info'>
                     Reiniciar camino
                 </Button>
-                <Button>
+                <Button className = 'h-50 ' variant = 'success'>
                     Iniciar
                 </Button>
-                <Button>
+                <Button className = 'h-50' variant = 'danger' disabled>
                     Detener
                 </Button>
-                <a href = ''>
+                <a href = ''  className = ''>
                     <img src = {imagenGithub}></img>
                 </a>
             </div>
