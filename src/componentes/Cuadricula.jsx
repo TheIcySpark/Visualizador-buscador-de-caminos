@@ -1,3 +1,4 @@
+import { event } from 'jquery';
 import React from 'react';
 import './cuadricula.css'
 
@@ -5,7 +6,6 @@ export default class Cuadricula extends React.Component{
 
     constructor(props){
         super(props);
-
         this.state = {
             cuadricula : [],
             numeroFilas : 17,
@@ -14,14 +14,20 @@ export default class Cuadricula extends React.Component{
     }
 
     componentDidMount(props){
+        let id = 0
         let cuadricula = new Array(this.state.numeroFilas);
         for(let i = 0; i < this.state.numeroFilas; i++){
             cuadricula[i] = new Array(this.state.numeroColumnas);
             for(let j = 0; j < this.state.numeroColumnas; j++){
-                cuadricula[i][j] = 0;
+                cuadricula[i][j] = id;
+                id += 1;
             }
         }
         this.setState({cuadricula});
+    }
+
+    convertirEnPared(celda){
+        celda.style.backgroundColor = '#80ced6';
     }
 
     render(){
@@ -34,7 +40,15 @@ export default class Cuadricula extends React.Component{
                             {
                                 valor.map((valor, indice) =>{
                                     return(
-                                        <div className = 'celda' key = {indice}>
+                                        <div className = 'celda' key = {indice} id = {valor}
+                                        onMouseEnter = {(evento) =>{
+                                            if(evento.buttons == 1){
+                                                this.convertirEnPared(document.getElementById(valor));
+                                            }
+                                        }}
+                                        onMouseDown = {(evento) =>{
+                                            this.convertirEnPared(document.getElementById(valor));
+                                        }}>
                                         </div>
                                     )
                                 })
