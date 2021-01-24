@@ -8,7 +8,7 @@ export default class BarraSuperior extends React.Component{
         return(
             <div className = 'd-flex justify-content-between'>
                 <div className = ''>
-                    <input type = 'image' src = {imagenAyuda}></input>
+                    <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
                 </div>
                 <select value = 'algoritmo 1' className = 'bg-dark text-white  h-50'>
                     <option value = 'algoritmo 1'>
@@ -43,8 +43,8 @@ export default class BarraSuperior extends React.Component{
                 <Button className = 'h-50' variant = 'danger' disabled>
                     Detener
                 </Button>
-                <a href = ''  className = ''>
-                    <img src = {imagenGithub}></img>
+                <a href = ''  draggable = {false}>
+                    <img src = {imagenGithub} draggable = {false}></img>
                 </a>
             </div>
         )

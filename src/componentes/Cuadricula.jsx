@@ -25,32 +25,31 @@ export default class Cuadricula extends React.Component {
         }
     }
 
-    allowDrop(ev) {
-        ev.preventDefault();
+    allowDrop(evento) {
+        evento.preventDefault();
     }
 
-    drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
+    drag(evento) {
+        evento.dataTransfer.setData("text", evento.target.id);
     }
 
-    drop(ev) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        ev.target.appendChild(document.getElementById(data));
+    drop(evento) {
+        evento.preventDefault();
+        var data = evento.dataTransfer.getData("text");
+        evento.target.appendChild(document.getElementById(data));
     }
 
     componentDidMount(props) {
         let puntoInicio = document.createElement("img");
         puntoInicio.src = flecha
         document.getElementById(0).appendChild(puntoInicio);
-        puntoInicio.draggable = true;
         puntoInicio.id = 'puntoInicio';
         puntoInicio.ondragstart = this.drag;
         let puntoFinal = document.createElement("img");
         puntoFinal.src = punto;
         document.getElementById(this.state.numeroColumnas * this.state.numeroFilas - 1).appendChild(puntoFinal)
-        puntoFinal.draggable = true;
-        puntoFinal.id = 'pudntoFinal';
+        puntoFinal.id = 'puntoFinal';
+        puntoFinal.ondragstart = this.drag;
 
     }
 
@@ -63,17 +62,17 @@ export default class Cuadricula extends React.Component {
     }
 
     render() {
-        console.log(this.state.cuadricula)
         return (
             <>
                 {this.state.cuadricula.map((valor, indice) => {
                     return (
-                        <div className='d-flex justify-content-start'>
+                        <div className='d-flex justify-content-start' draggable = {false} >
                             {
                                 valor.map((valor, indice) => {
                                     return (
                                         <div className='celda' key={indice} id={valor}
                                         onDrop = {this.drop} onDragOver = {this.allowDrop}
+                                        draggable = {false}
                                         onMouseEnter={(evento) => {
                                                 let celda = document.getElementById(valor)
                                                 if (evento.shiftKey && evento.buttons == 1) {
