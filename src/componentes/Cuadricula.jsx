@@ -1,7 +1,7 @@
 import React from 'react';
 import './cuadricula.css'
-import flecha from '../imagenes/flecha.png';
-import punto from '../imagenes/punto.png';
+import flecha from '../imagenes/flecha.svg';
+import punto from '../imagenes/punto.svg';
 
 
 export default class Cuadricula extends React.Component {
@@ -27,6 +27,7 @@ export default class Cuadricula extends React.Component {
 
     allowDrop(evento) {
         evento.preventDefault();
+        evento.stopPropagation();
     }
 
     drag(evento) {
@@ -36,7 +37,9 @@ export default class Cuadricula extends React.Component {
     drop(evento) {
         evento.preventDefault();
         var data = evento.dataTransfer.getData("text");
-        evento.target.appendChild(document.getElementById(data));
+        var elemento = document.getElementById(data);
+        if(elemento == null) return;
+        else evento.target.appendChild(elemento);
     }
 
     componentDidMount(props) {
@@ -75,13 +78,14 @@ export default class Cuadricula extends React.Component {
                                         draggable = {false}
                                         onMouseEnter={(evento) => {
                                                 let celda = document.getElementById(valor)
-                                                if (evento.shiftKey && evento.buttons == 1) {
+                                                if (evento.shiftKey && evento.buttons === 1) {
                                                     this.convertirEnCeldaLibre(celda);
-                                                } else if (evento.buttons == 1) {
+                                                } else if (evento.buttons === 1) {
                                                     this.convertirEnPared(celda);
                                                 }
                                             }}
                                             onMouseDown={(evento) => {
+                                                console.log(evento.target)
                                                 let celda = document.getElementById(valor);
                                                 if (evento.shiftKey) {
                                                     this.convertirEnCeldaLibre(celda);
