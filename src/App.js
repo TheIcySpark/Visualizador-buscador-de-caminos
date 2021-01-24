@@ -1,6 +1,5 @@
 import BarraSuperior from './componentes/BarraSuperior';
 import Cuadricula from './componentes/Cuadricula';
-
 function App() {
     return (
         <div>
