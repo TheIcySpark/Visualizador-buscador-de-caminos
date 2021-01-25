@@ -3,15 +3,14 @@ import Cuadricula from './componentes/Cuadricula';
 import {useSpring, animated, config, useSprings} from 'react-spring'
 
 function App() {
-    const props = useSpring(
-        {opacity: 1, from: {opacity: 0},
-        config: {duration: 1500}}
+    const animacion = useSpring(
+        {opacity: 1, from: {opacity: 0}}
     )
     return (
-        <animated.div style = {props}>
-            <div className='py-2'>
+        <animated.div style = {animacion}>
+            <animated.div className='py-2'>
                 <BarraSuperior></BarraSuperior>
-            </div>
+            </animated.div>
             <Cuadricula></Cuadricula>
         </animated.div>
     );

@@ -1,8 +1,57 @@
-.celda{
-    border-width: 0.1px;
-    border-style:solid;
+.celdaLibre{
+    border-width: 1px;
+    border-style: solid;
     border-color: #e16428;
-    background-color: #f6e9e9;
+    background-color:aliceblue;
     height: 35px;
     width: 100%;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.celdaOcupada{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    background-color: rgb(0, 70, 131);
+    height: 35px;
+    width: 100%;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.puntoFinal{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    height: 35px;
+    width: 100%;
+    background-image: url("punto.svg");
+    background-color: aliceblue;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.puntoInicio{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    height: 35px;
+    width: 100%;
+    background-image: url("flecha.svg");
+    background-color: aliceblue;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
 }
