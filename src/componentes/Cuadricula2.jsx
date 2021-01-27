@@ -1,24 +1,25 @@
-import {useSpring, animated, config, useSprings} from 'react-spring'
+import React, {useState} from 'react';
+import {useSpring, animated, config} from 'react-spring'
 
 function Cuadricula2(props) {
-    const animacion = useSpring({backgroundColor: 'white', from: {backgroundColor: 'red'}})
+    
+    
     return (
         <>
             {props.cuadricula.map((valor, indice) => {
                 return (
-                    <animated.div className='d-flex justify-content-start' draggable = {false}>
+                    <div className='d-flex justify-content-start' draggable = {false}>
                         {
                             valor.map((valor, indice) => {
                                 return (
                                     <animated.div className='celdaLibre' key={indice} id = {valor}
                                     onDrop = {drop} onDragOver = {allowDrop}
-                                    style = {animacion}
                                     onMouseEnter={(evento) => {
-                                            if (evento.shiftKey && evento.buttons === 1) {
-                                                convertirEnCeldaLibre(evento.target);
-                                            } else if (evento.buttons === 1) {
-                                                convertirEnPared(evento.target);
-                                            }
+                                        if (evento.shiftKey && evento.buttons === 1) {
+                                            convertirEnCeldaLibre(evento.target);
+                                        } else if (evento.buttons === 1) {
+                                            convertirEnPared(evento.target);
+                                        }
                                         }}
                                         onMouseDown={(evento) => {
                                             if (evento.shiftKey) {
@@ -31,7 +32,7 @@ function Cuadricula2(props) {
                                 )
                             })
                         }
-                    </animated.div>
+                    </div>
                 )
             })
             }
