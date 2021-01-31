@@ -46,7 +46,7 @@ export default class Cuadricula extends React.Component {
 
     render() {
         return (
-            <Cuadricula2 cuadricula = {this.state.cuadricula}
+            <Cuadricula2 cuadricula = {this.state.cuadricula} nf = {this.state.nf} nc = {this.state.nc}
             ></Cuadricula2>
         )
     }

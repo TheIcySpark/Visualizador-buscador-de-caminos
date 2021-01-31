@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {useSpring, animated, config} from 'react-spring'
+import Celda from './Celda';
 
 function Cuadricula2(props) {
-    
-    
     return (
         <>
             {props.cuadricula.map((valor, indice) => {
@@ -12,7 +11,7 @@ function Cuadricula2(props) {
                         {
                             valor.map((valor, indice) => {
                                 return (
-                                    <animated.div className='celdaLibre' key={indice} id = {valor}
+                                    <Celda className='celdaLibre' key={indice} id = {valor}
                                     onDrop = {drop} onDragOver = {allowDrop}
                                     onMouseEnter={(evento) => {
                                         if (evento.shiftKey && evento.buttons === 1) {
@@ -28,7 +27,7 @@ function Cuadricula2(props) {
                                                 convertirEnPared(evento.target);
                                             }
                                         }}>
-                                    </animated.div>
+                                    </Celda>
                                 )
                             })
                         }
