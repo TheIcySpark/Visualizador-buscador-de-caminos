@@ -8,7 +8,6 @@ function App() {
         opacity: 1,
         config: {duration: 500}
     })
-    console.log("xd");
     return (
         <animated.div style = {animacion}>
             <div className='py-2'>
