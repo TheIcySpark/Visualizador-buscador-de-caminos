@@ -50,7 +50,7 @@ function convertirEnCeldaLibre(celda, estado, setEstado) {
 function Celda(props) {
     const [estado, setEstado] = useState(1);
     const animacion = useSpring({
-        backgroundColor: estado ? 'aliceblue': 'rgb(0, 70, 131)',
+        backgroundColor: estado ? '#bbe1fa': 'rgb(11, 37, 59)',
         config: {duration: 500}
     })
     return(

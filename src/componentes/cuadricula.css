@@ -2,7 +2,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
-    background-color:aliceblue;
+    background-color: #bbe1fa;
     height: 35px;
     width: 100%;
     user-select: none; /* supported by Chrome and Opera */
@@ -16,7 +16,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
-    background-color: rgb(0, 70, 131);
+    background-color: rgb(11, 37, 59);
     height: 35px;
     width: 100%;
     user-select: none; /* supported by Chrome and Opera */
@@ -33,7 +33,7 @@
     height: 35px;
     width: 100%;
     background-image: url("punto.svg");
-    background-color: aliceblue;
+    background-color: #bbe1fa;
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -47,7 +47,7 @@
     border-color: #e16428;
     height: 35px;
     width: 100%;
-    background-color: aliceblue;
+    background-color: #bbe1fa;
     background-image: url("flecha.svg");
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
