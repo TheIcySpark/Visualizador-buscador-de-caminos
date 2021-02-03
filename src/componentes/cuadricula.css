@@ -26,14 +26,29 @@
    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
+.celdaConPeso{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    height: 35px;
+    width: 100%;
+    background-color: #bbe1fa;
+    background-image: url("peso.svg");
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
 .puntoFinal{
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
     height: 35px;
     width: 100%;
-    background-image: url("punto.svg");
     background-color: #bbe1fa;
+    background-image: url("punto.svg");
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */

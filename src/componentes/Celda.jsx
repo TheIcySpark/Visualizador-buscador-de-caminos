@@ -15,7 +15,7 @@ function drag(evento) {
     evento.dataTransfer.setData("text", evento.target.id);
 }
 
-function drop(evento, estado, setEstado) {
+function drop(evento, setEstado) {
     evento.preventDefault();
     var data = evento.dataTransfer.getData("text");
     var elemento = document.getElementById(data);
@@ -32,7 +32,7 @@ function drop(evento, estado, setEstado) {
 }
 
 
-function convertirEnPared(celda, estado, setEstado) {
+function convertirEnPared(celda, setEstado) {
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaOcupada'
         setEstado(0);
@@ -40,11 +40,18 @@ function convertirEnPared(celda, estado, setEstado) {
 }
 
 
-function convertirEnCeldaLibre(celda, estado, setEstado) {
+function convertirEnCeldaLibre(celda, setEstado) {
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaLibre';
-        setEstado(1)
+        setEstado(1);
     } 
+}
+
+function convertirEnCeldaConPeso(celda, setEstado){
+    if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
+        celda.className = 'celdaConPeso';
+        setEstado(1);
+    }
 }
 
 function Celda(props) {
@@ -63,23 +70,26 @@ function Celda(props) {
         }}
         style = {animacion}
         onDrop = {(evento) =>{
-            drop(evento, estado, setEstado)
+            drop(evento, setEstado)
         }}
         onDragOver = {(evento) =>{
             allowDrop(evento)
         }}
         onMouseEnter={(evento) => {
             if (evento.shiftKey && evento.buttons === 1) {
-                convertirEnCeldaLibre(evento.target, estado, setEstado);
-            } else if (evento.buttons === 1) {
-                convertirEnPared(evento.target, estado, setEstado);
+                convertirEnCeldaLibre(evento.target, setEstado);
+            }else if(evento.altKey && evento.buttons === 1){
+                console.log("xd")
+                convertirEnCeldaConPeso(evento.target, setEstado);
+            }else if (evento.buttons === 1) {
+                convertirEnPared(evento.target, setEstado);
             }
         }}
         onMouseDown={(evento) => {
             if (evento.shiftKey) {
-                convertirEnCeldaLibre(evento.target, estado, setEstado);
+                convertirEnCeldaLibre(evento.target, setEstado);
             } else {
-                convertirEnPared(evento.target, estado, setEstado);
+                convertirEnPared(evento.target, setEstado);
             }
         }}>
         </animated.div>

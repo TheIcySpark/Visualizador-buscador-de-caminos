@@ -1,6 +1,4 @@
 import './cuadricula.css'
-import flecha from '../imagenes/flecha.svg';
-import punto from '../imagenes/punto.svg';
 import Celda from './Celda';
 
 
