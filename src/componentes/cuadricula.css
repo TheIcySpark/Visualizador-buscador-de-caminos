@@ -47,8 +47,8 @@
     border-color: #e16428;
     height: 35px;
     width: 100%;
-    background-image: url("flecha.svg");
     background-color: aliceblue;
+    background-image: url("flecha.svg");
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */

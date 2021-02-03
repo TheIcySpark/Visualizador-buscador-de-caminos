@@ -10,7 +10,7 @@ export default class BarraSuperior extends React.Component{
                 <div className = ''>
                     <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
                 </div>
-                <select value = 'algoritmo 1' className = 'bg-dark text-white  h-50'>
+                <select className = 'bg-dark text-white  h-50'>
                     <option value = 'algoritmo 1'>
                         algoritmo 1
                     </option>
