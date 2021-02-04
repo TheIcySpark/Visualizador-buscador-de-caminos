@@ -1,8 +1,6 @@
 import './cuadricula.css'
 import Celda from './Celda';
 
-
-
 function Cuadricula() {
     var cuadricula = new Array(17);
     var id = 0

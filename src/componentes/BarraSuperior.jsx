@@ -11,8 +11,8 @@ export default class BarraSuperior extends React.Component{
                     <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
                 </div>
                 <select className = 'bg-dark text-white  h-50'>
-                    <option value = 'algoritmo 1'>
-                        algoritmo 1
+                    <option value = 'Algoritmo de Dijkstra'>
+                        Algoritmo de Dijkstra
                     </option>
                 </select>
                 <select className = 'bg-dark text-white  h-50' >
@@ -43,7 +43,7 @@ export default class BarraSuperior extends React.Component{
                 <Button className = 'h-50' variant = 'danger' disabled>
                     Detener
                 </Button>
-                <a href = ''  draggable = {false}>
+                <a href = 'https://github.com/TheIcySpark/Visualizador-buscador-de-caminos'  draggable = {false}>
                     <img src = {imagenGithub} draggable = {false}></img>
                 </a>
             </div>
