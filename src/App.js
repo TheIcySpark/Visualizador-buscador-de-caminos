@@ -6,7 +6,7 @@ function App() {
     const animacion = useSpring({
         from: {opacity: 0},
         opacity: 1,
-        config: {duration: 500}
+        config: {duration: 600}
     })
     return (
         <animated.div style = {animacion}>

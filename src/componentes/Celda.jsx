@@ -24,7 +24,7 @@ function drop(evento, setEstado) {
         evento.target.className = elemento.className;
         evento.target.ondragstart = drag;
         evento.target.draggable = true;
-        setEstado(1)
+        setEstado('#bbe1fa')
         elemento.className = 'celdaLibre';
         elemento.ondragstart = null;
         elemento.draggable = false;
@@ -35,7 +35,7 @@ function drop(evento, setEstado) {
 function convertirEnPared(celda, setEstado) {
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaOcupada'
-        setEstado(0);
+        setEstado('rgb(11, 37, 59)');
     }
 }
 
@@ -43,21 +43,21 @@ function convertirEnPared(celda, setEstado) {
 function convertirEnCeldaLibre(celda, setEstado) {
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaLibre';
-        setEstado(1);
+        setEstado('#bbe1fa');
     } 
 }
 
 function convertirEnCeldaConPeso(celda, setEstado){
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaConPeso';
-        setEstado(1);
+        setEstado('#85cfcb');
     }
 }
 
 function Celda(props) {
-    const [estado, setEstado] = useState(1);
+    const [estado, setEstado] = useState('#bbe1fa');
     const animacion = useSpring({
-        backgroundColor: estado ? '#bbe1fa': 'rgb(11, 37, 59)',
+        backgroundColor: estado,
         config: {duration: 500}
     })
     return(
@@ -79,7 +79,6 @@ function Celda(props) {
             if (evento.shiftKey && evento.buttons === 1) {
                 convertirEnCeldaLibre(evento.target, setEstado);
             }else if(evento.altKey && evento.buttons === 1){
-                console.log("xd")
                 convertirEnCeldaConPeso(evento.target, setEstado);
             }else if (evento.buttons === 1) {
                 convertirEnPared(evento.target, setEstado);
@@ -88,7 +87,9 @@ function Celda(props) {
         onMouseDown={(evento) => {
             if (evento.shiftKey) {
                 convertirEnCeldaLibre(evento.target, setEstado);
-            } else {
+            }else if(evento.altKey){
+                convertirEnCeldaConPeso(evento.target, setEstado);
+            }else {
                 convertirEnPared(evento.target, setEstado);
             }
         }}>
