@@ -7,10 +7,6 @@ function allowDrop(evento) {
     evento.stopPropagation();
 }
 
-function finta(){
-
-}
-
 function drag(evento) {
     evento.dataTransfer.setData("text", evento.target.id);
 }
@@ -24,7 +20,9 @@ function drop(evento, setEstado) {
         evento.target.className = elemento.className;
         evento.target.ondragstart = drag;
         evento.target.draggable = true;
-        setEstado('#bbe1fa')
+        evento.target.style.backgroundColor = '#04879c'
+        setEstado('#04879c')
+        elemento.style.backgroundColor = '#bbe1fa'
         elemento.className = 'celdaLibre';
         elemento.ondragstart = null;
         elemento.draggable = false;
@@ -55,7 +53,9 @@ function convertirEnCeldaConPeso(celda, setEstado){
 }
 
 function Celda(props) {
-    const [estado, setEstado] = useState('#bbe1fa');
+    var colorInicial = '#bbe1fa'
+    if(props.className === 'puntoInicio' || props.className === 'puntoFinal') colorInicial = '#04879c'
+    const [estado, setEstado] = useState(colorInicial);
     const animacion = useSpring({
         backgroundColor: estado,
         config: {duration: 500}
