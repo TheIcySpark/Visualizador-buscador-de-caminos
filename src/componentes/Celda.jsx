@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useSpring, animated, config} from 'react-spring'
 
 
@@ -26,6 +26,7 @@ function drop(evento, setEstado) {
         elemento.className = 'celdaLibre';
         elemento.ondragstart = null;
         elemento.draggable = false;
+        console.log(evento.target.id)
     }
 }
 
@@ -60,8 +61,10 @@ function Celda(props) {
         backgroundColor: estado,
         config: {duration: 500}
     })
+
+
     return(
-        <animated.div className = {props.className} id = {props.id}
+        <div className = {props.className} id = {props.id}
         draggable = {(props.className === 'puntoInicio' || props.className === 'puntoFinal')? true: false}
         onDragStart = {(evento) =>{
             if(props.className === 'puntoInicio' || props.className === 'puntoFinal'){
@@ -93,7 +96,7 @@ function Celda(props) {
                 convertirEnPared(evento.target, setEstado);
             }
         }}>
-        </animated.div>
+        </div>
     )
 }
 export default Celda;

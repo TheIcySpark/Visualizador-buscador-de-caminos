@@ -37,7 +37,10 @@ export default class BarraSuperior extends React.Component{
                 <Button className = 'h-50 ' variant = 'info'>
                     Reiniciar camino
                 </Button>
-                <Button className = 'h-50 ' variant = 'success'>
+                <Button className = 'h-50 ' variant = 'success' id = 'botonInicio'
+                onClick = {() =>{
+                    
+                }}>
                     Iniciar
                 </Button>
                 <Button className = 'h-50' variant = 'danger' disabled>

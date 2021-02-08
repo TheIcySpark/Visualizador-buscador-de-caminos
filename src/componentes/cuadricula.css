@@ -6,10 +6,25 @@
     height: 35px;
     width: 100%;
     user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.celdaVisitada{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    background-color: yellow;
+    height: 35px;
+    width: 100%;
+    transition: background-color 1s;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */ 
 }
 
 .celdaOcupada{
@@ -49,6 +64,7 @@
     width: 100%;
     background-color: #04879c;
     background-image: url("punto.svg");
+    cursor: pointer;
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */
@@ -64,6 +80,7 @@
     width: 100%;
     background-color: #04879c;
     background-image: url("flecha.svg");
+    cursor: pointer;
     user-select: none; /* supported by Chrome and Opera */
    -webkit-user-select: none; /* Safari */
    -khtml-user-select: none; /* Konqueror HTML */

@@ -1,5 +1,7 @@
 import './cuadricula.css'
 import Celda from './Celda';
+import dijkstra from './dijkstra';
+import { useEffect } from 'react';
 
 function Cuadricula() {
     var cuadricula = new Array(17);
@@ -12,9 +14,11 @@ function Cuadricula() {
         }
     }
 
-    function drag(evento) {
-        evento.dataTransfer.setData("text", evento.target.id);
-    }
+    useEffect(() =>{
+        document.getElementById('botonInicio').onclick = () =>{
+            dijkstra();
+        }
+    }, [])
 
     return (
         <>
