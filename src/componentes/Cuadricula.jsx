@@ -1,7 +1,15 @@
 import './cuadricula.css'
 import Celda from './Celda';
-import dijkstra from './dijkstra';
+import bfs from './bfs';
 import { useEffect } from 'react';
+
+
+function mostrarAnimaciones(animaciones){
+    for(let i = 0; i < animaciones.length; i++){
+        document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
+        console.log(i)
+    }
+}
 
 function Cuadricula() {
     var cuadricula = new Array(17);
@@ -16,7 +24,8 @@ function Cuadricula() {
 
     useEffect(() =>{
         document.getElementById('botonInicio').onclick = () =>{
-            dijkstra();
+            let animaciones = bfs();
+            console.log(animaciones)
         }
     }, [])
 
