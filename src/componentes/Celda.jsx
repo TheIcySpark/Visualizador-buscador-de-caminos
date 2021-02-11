@@ -1,16 +1,24 @@
 import React from 'react';
 
 
+function visualizacionEnCurso(){
+    if(document.getElementById('botonInicio').disabled) return true
+    else return false
+}
+
 function allowDrop(evento) {
+    if(visualizacionEnCurso()) return
     evento.preventDefault();
     evento.stopPropagation();
 }
 
 function drag(evento) {
+    if(visualizacionEnCurso()) return
     evento.dataTransfer.setData("text", evento.target.id);
 }
 
 function drop(evento) {
+    if(visualizacionEnCurso()) return
     evento.preventDefault();
     var data = evento.dataTransfer.getData("text");
     var elemento = document.getElementById(data);
@@ -27,6 +35,7 @@ function drop(evento) {
 
 
 function convertirEnPared(celda) {
+    if(visualizacionEnCurso()) return
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaOcupada'
     }
@@ -34,12 +43,14 @@ function convertirEnPared(celda) {
 
 
 function convertirEnCeldaLibre(celda) {
+    if(visualizacionEnCurso()) return
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaLibre';
     } 
 }
 
 function convertirEnCeldaConPeso(celda){
+    if(visualizacionEnCurso()) return
     if(celda.className != 'puntoInicio' && celda.className != 'puntoFinal'){
         celda.className = 'celdaConPeso';
     }
