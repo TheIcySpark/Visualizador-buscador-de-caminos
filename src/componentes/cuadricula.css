@@ -92,22 +92,6 @@
    -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
-.puntoFinalVisitado{
-    border-width: 1px;
-    border-style: solid;
-    border-color: #e16428;
-    height: 35px;
-    width: 100%;
-    background-color: yellow;
-    transition: background-color 1s;
-    background-image: url("punto.svg");
-    cursor: pointer;
-    user-select: none; /* supported by Chrome and Opera */
-   -webkit-user-select: none; /* Safari */
-   -khtml-user-select: none; /* Konqueror HTML */
-   -moz-user-select: none; /* Firefox */
-   -ms-user-select: none; /* Internet Explorer/Edge */
-}
 
 .puntoInicio{
     border-width: 1px;

@@ -5,9 +5,9 @@ var animacion = {}
 
 function posicionValida(posicion){
     if(posicion.i < 17 && posicion.i >= 0 && posicion.j < 38 && posicion.j >= 0 && 
-        (document.getElementById(cuadricula[posicion.i][posicion.j]).className === 'celdaLibre' ||
-        document.getElementById(cuadricula[posicion.i][posicion.j]).className === 'celdaConPeso'  ||
-        document.getElementById(cuadricula[posicion.i][posicion.j]).className === 'puntoFinal')){
+        (cuadricula[posicion.i][posicion.j].clase === 'celdaLibre' ||
+        cuadricula[posicion.i][posicion.j].clase === 'celdaConPeso'  ||
+        cuadricula[posicion.i][posicion.j].clase === 'puntoFinal')){
         return true
     }else{
         return false
@@ -15,6 +15,7 @@ function posicionValida(posicion){
 }
 
 function bfs(){
+    animaciones = []
     let inicio = document.getElementsByClassName('puntoInicio')[0]
     let final = document.getElementsByClassName('puntoFinal')[0]
     let id = 0
@@ -29,7 +30,8 @@ function bfs(){
                 iAux = i
                 jAux = j
             }
-            cuadricula[i][j] = id++
+            cuadricula[i][j] = {id: id, clase: document.getElementById(id).className}
+            id ++
         }
     }
     i = iAux
@@ -45,23 +47,22 @@ function bfs(){
             posicionSiguiente.j += movs[aux][1]
             if(posicionValida(posicionSiguiente)){
                 cola.push(posicionSiguiente)
-                let elemento = document.getElementById(cuadricula[posicionSiguiente.i][posicionSiguiente.j])
-                if(elemento.className === 'celdaLibre'){
+                if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'celdaLibre'){
                     animacion = {}
-                    animacion.posicion = posicionSiguiente
+                    animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
                     animacion.clase = 'celdaVisitada'
                     animaciones.push(animacion)
-                    elemento.className = 'celdaVisitada'
-                }else if(elemento.className == 'celdaConPeso'){
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitada'
+                }else if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'celdaConPeso'){
                     animacion = {}
-                    animacion.posicion = posicionSiguiente
+                    animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
                     animacion.clase = 'celdaVisitada'
                     animaciones.push(animacion)
-                    elemento.className = 'celdaVisitadaConPeso'
-                }else if(elemento.className == 'puntoFinal'){
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitadaConPeso'
+                }else if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'puntoFinal'){
                     animacion = {}
-                    animacion.posicion = posicionSiguiente
-                    animacion.clase = 'puntoFinalVisitado'
+                    animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
+                    animacion.clase = 'puntoFinal'
                     animaciones.push(animacion)
                     fin = true
                     break

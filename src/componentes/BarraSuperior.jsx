@@ -10,12 +10,15 @@ export default class BarraSuperior extends React.Component{
                 <div className = ''>
                     <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
                 </div>
-                <select className = 'bg-dark text-white  h-50'>
-                    <option value = 'Algoritmo de Dijkstra' id = 'algoritmoSeleccionado'>
+                <select className = 'bg-dark text-white  h-50' id = 'selectAlgoritmo'>
+                    <option value = 'bfs'>
+                        BFS
+                    </option>
+                    <option value = 'dijkstra'>
                         Algoritmo de Dijkstra
                     </option>
                 </select>
-                <select className = 'bg-dark text-white  h-50' >
+                <select className = 'bg-dark text-white  h-50' id = 'selectVelocidad'>
                     <option value = 'lento'>
                         lento
                     </option>
@@ -31,19 +34,16 @@ export default class BarraSuperior extends React.Component{
                     <Dropdown.Item>Patron 2</Dropdown.Item>
                     <Dropdown.Item>Patron 3</Dropdown.Item>
                 </DropdownButton>
-                <Button className = 'h-50 ' variant = 'info'>
+                <Button className = 'h-50 ' variant = 'info' id = 'botonReiniciarCuadricula'>
                     Reiniciar cuadricula
                 </Button>
-                <Button className = 'h-50 ' variant = 'info'>
+                <Button className = 'h-50 ' variant = 'info' id = 'botonReiniciarCamino'>
                     Reiniciar camino
                 </Button>
-                <Button className = 'h-50 ' variant = 'success' id = 'botonInicio'
-                onClick = {() =>{
-                    
-                }}>
+                <Button className = 'h-50 ' variant = 'success' id = 'botonInicio'>
                     Iniciar
                 </Button>
-                <Button className = 'h-50' variant = 'danger' disabled>
+                <Button className = 'h-50' variant = 'danger' disabled id = 'botonDetener'>
                     Detener
                 </Button>
                 <a href = 'https://github.com/TheIcySpark/Visualizador-buscador-de-caminos'  draggable = {false}>

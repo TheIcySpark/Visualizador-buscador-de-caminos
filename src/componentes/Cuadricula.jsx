@@ -4,10 +4,23 @@ import bfs from './bfs';
 import { useEffect } from 'react';
 
 
-function mostrarAnimaciones(animaciones){
+function mostrarAnimaciones(animaciones, timers){
     for(let i = 0; i < animaciones.length; i++){
-        document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
-        console.log(i)
+        setTimeout(() =>{
+            document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
+        }, i * 3)
+    }
+}
+
+function reiniciarCamino(){
+    var id = 0
+    for(var i = 0; i < 17; i++){
+        for(var j = 0; j < 38; j++){
+            let elemento = document.getElementById(id++)
+            if(elemento.className === 'celdaVisitada') elemento.className = 'celdaLibre'
+            else if(elemento.className === 'celdaVisitadaConPeso') elemento.className = 'celdaConPeso'
+            else if(elemento.className === 'puntoFinalVisitado') elemento.className = 'puntoFinal'
+        }
     }
 }
 
@@ -24,8 +37,21 @@ function Cuadricula() {
 
     useEffect(() =>{
         document.getElementById('botonInicio').onclick = () =>{
-            let animaciones = bfs();
-            console.log(animaciones)
+            let timers = []
+            reiniciarCamino()
+            let algoritmo = document.getElementById('selectAlgoritmo').value
+            console.log(algoritmo)
+            let animaciones 
+            if(algoritmo === 'bfs'){
+                animaciones = bfs();
+            }
+            setTimeout(() =>{
+                mostrarAnimaciones(animaciones, timers)
+            }, 500)
+            
+        }
+        document.getElementById('botonReiniciarCamino').onclick = () =>{
+            reiniciarCamino()
         }
     }, [])
 
