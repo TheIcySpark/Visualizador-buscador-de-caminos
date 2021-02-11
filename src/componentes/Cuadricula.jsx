@@ -4,11 +4,15 @@ import bfs from './bfs';
 import { useEffect } from 'react';
 
 
-function mostrarAnimaciones(animaciones, timers){
+function mostrarAnimaciones(animaciones, timers, velocidad){
     for(let i = 0; i < animaciones.length; i++){
-        setTimeout(() =>{
-            document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
-        }, i * 3)
+        timers.push(
+            setTimeout(() =>{
+                document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
+                if(i == animaciones.length -1 ){
+                    intercambioBotonesHabilitados()
+                }
+            }, i * velocidad))
     }
 }
 
@@ -24,6 +28,27 @@ function reiniciarCamino(){
     }
 }
 
+function detenerVisualizacion(timers){
+    for(var i = 0; i < timers.length; i++){
+        clearTimeout(timers[i])
+    }
+    timers = []
+    setTimeout(() =>{
+        reiniciarCamino()
+        intercambioBotonesHabilitados()
+    },100)
+}
+
+function intercambioBotonesHabilitados(){
+    document.getElementById('botonDetener').disabled = !document.getElementById('botonDetener').disabled
+    document.getElementById('botonInicio').disabled = !document.getElementById('botonInicio').disabled
+    document.getElementById('selectAlgoritmo').disabled = !document.getElementById('selectAlgoritmo').disabled
+    document.getElementById('selectVelocidad').disabled = !document.getElementById('selectVelocidad').disabled
+    document.getElementById('botonReiniciarCuadricula').disabled = !document.getElementById('botonReiniciarCuadricula').disabled
+    document.getElementById('botonReiniciarCamino').disabled = !document.getElementById('botonReiniciarCamino').disabled
+    document.getElementById('dropdownPatronCaminos').disabled = !document.getElementById('dropdownPatronCaminos').disabled
+}
+
 function Cuadricula() {
     var cuadricula = new Array(17);
     var id = 0
@@ -36,22 +61,27 @@ function Cuadricula() {
     }
 
     useEffect(() =>{
+        var timers = []
         document.getElementById('botonInicio').onclick = () =>{
-            let timers = []
+            intercambioBotonesHabilitados()
             reiniciarCamino()
             let algoritmo = document.getElementById('selectAlgoritmo').value
+            let velocidad = document.getElementById('selectVelocidad').value
             console.log(algoritmo)
             let animaciones 
             if(algoritmo === 'bfs'){
                 animaciones = bfs();
             }
             setTimeout(() =>{
-                mostrarAnimaciones(animaciones, timers)
+                mostrarAnimaciones(animaciones, timers, velocidad)
             }, 500)
             
         }
         document.getElementById('botonReiniciarCamino').onclick = () =>{
             reiniciarCamino()
+        }
+        document.getElementById('botonDetener').onclick = () =>{
+            detenerVisualizacion(timers)
         }
     }, [])
 

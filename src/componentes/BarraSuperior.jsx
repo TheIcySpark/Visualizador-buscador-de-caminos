@@ -19,17 +19,17 @@ export default class BarraSuperior extends React.Component{
                     </option>
                 </select>
                 <select className = 'bg-dark text-white  h-50' id = 'selectVelocidad'>
-                    <option value = 'lento'>
-                        lento
-                    </option>
-                    <option value = 'intermedio'>
-                        intermedio
-                    </option>
-                    <option value = 'rapido'>
+                    <option value = '5'>
                         rapido
                     </option>
+                    <option value = '50'>
+                        intermedio
+                    </option>
+                    <option value = '75'>
+                        lento
+                    </option>
                 </select>
-                <DropdownButton title = 'Patron de caminos' className = 'h-50' variant = 'info'>
+                <DropdownButton title = 'Patron de caminos' className = 'h-50' variant = 'info' id = 'dropdownPatronCaminos'>
                     <Dropdown.Item>Patron 1</Dropdown.Item>
                     <Dropdown.Item>Patron 2</Dropdown.Item>
                     <Dropdown.Item>Patron 3</Dropdown.Item>
