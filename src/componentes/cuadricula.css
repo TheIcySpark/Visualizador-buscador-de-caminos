@@ -13,6 +13,21 @@
     -ms-user-select: none; /* Internet Explorer/Edge */
 }
 
+.celdaCamino{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    background-color: orange;
+    height: 35px;
+    width: 100%;
+    transition: background-color 1s;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
 .celdaVisitadaConPeso{
     border-width: 1px;
     border-style: solid;

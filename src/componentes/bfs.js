@@ -14,10 +14,43 @@ function posicionValida(posicion){
     }
 }
 
+function posicionExistente(posicion){
+    if(posicion.i < 17 && posicion.i >= 0 && posicion.j < 38 && posicion.j >= 0) return true
+    else return false
+}
+
+function recrearCamino(posicion){
+    if(cuadricula[posicion.i][posicion.j].distancia === 0){
+        animacion = {}
+        animacion.posicion = cuadricula[posicion.i][posicion.j].id
+        animacion.clase = 'celdaCamino'
+        animaciones.push(animacion)
+    }else{
+        let aux = 0
+        var posicionSiguiente
+        while(aux < 4){
+            posicionSiguiente = {i: posicion.i, j: posicion.j}
+            posicionSiguiente.i += movs[aux][0]
+            posicionSiguiente.j += movs[aux][1]
+            if(posicionExistente(posicionSiguiente) && cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia ===
+            cuadricula[posicion.i][posicion.j].distancia -1){
+                break
+            }
+            aux++
+        }
+        recrearCamino({i: posicionSiguiente.i, j: posicionSiguiente.j})
+        animacion = {}
+        animacion.posicion = cuadricula[posicion.i][posicion.j].id
+        animacion.clase = 'celdaCamino'
+        animaciones.push(animacion)
+    }
+}
+
 function bfs(){
     animaciones = []
+    cuadricula = new Array(17)
     let inicio = document.getElementsByClassName('puntoInicio')[0]
-    let final = document.getElementsByClassName('puntoFinal')[0]
+    inicio.distancia = 0
     let id = 0
     let i = 0
     let j = 0
@@ -30,7 +63,9 @@ function bfs(){
                 iAux = i
                 jAux = j
             }
-            cuadricula[i][j] = {id: id, clase: document.getElementById(id).className}
+            console.log(id)
+            console.log(document.getElementById(id))
+            cuadricula[i][j] = {id: id, clase: document.getElementById(id).className, distancia: -1}
             id ++
         }
     }
@@ -53,17 +88,26 @@ function bfs(){
                     animacion.clase = 'celdaVisitada'
                     animaciones.push(animacion)
                     cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitada'
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia = 
+                            cuadricula[posicionActual.i][posicionActual.j].distancia + 1
                 }else if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'celdaConPeso'){
                     animacion = {}
                     animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
                     animacion.clase = 'celdaVisitada'
                     animaciones.push(animacion)
                     cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitadaConPeso'
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia = 
+                            cuadricula[posicionActual.i][posicionActual.j].distancia + 1
                 }else if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'puntoFinal'){
                     animacion = {}
                     animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
                     animacion.clase = 'puntoFinal'
                     animaciones.push(animacion)
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia = 
+                            cuadricula[posicionActual.i][posicionActual.j].distancia + 1
+                    if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia > 1){
+                        recrearCamino({i: posicionActual.i, j: posicionActual.j})
+                    }
                     fin = true
                     break
                 }

@@ -5,7 +5,15 @@ import { useEffect } from 'react';
 
 
 function mostrarAnimaciones(animaciones, timers, velocidad){
-    for(let i = 0; i < animaciones.length; i++){
+    let aux = 0
+    for(let i = 0;animaciones[i].clase === 'celdaVisitada' || animaciones[i].clase === 'celdaVisitadaConPeso'; i++){
+        timers.push(
+            setTimeout(() =>{
+                document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
+            }, i * velocidad))
+        aux = i
+    }
+    for(let i = aux;i < animaciones.length; i++){
         timers.push(
             setTimeout(() =>{
                 document.getElementById(animaciones[i].posicion).className = animaciones[i].clase
@@ -24,6 +32,7 @@ function reiniciarCamino(){
             if(elemento.className === 'celdaVisitada') elemento.className = 'celdaLibre'
             else if(elemento.className === 'celdaVisitadaConPeso') elemento.className = 'celdaConPeso'
             else if(elemento.className === 'puntoFinalVisitado') elemento.className = 'puntoFinal'
+            else if(elemento.className === 'celdaCamino') elemento.className = 'celdaLibre'
         }
     }
 }
@@ -67,7 +76,6 @@ function Cuadricula() {
             reiniciarCamino()
             let algoritmo = document.getElementById('selectAlgoritmo').value
             let velocidad = document.getElementById('selectVelocidad').value
-            console.log(algoritmo)
             let animaciones 
             if(algoritmo === 'bfs'){
                 animaciones = bfs();
