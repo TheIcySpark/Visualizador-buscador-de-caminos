@@ -1,23 +1,11 @@
+import verificadorPosiciones from './verificadorPosiciones'
 const movs = [[-1, 0], [0, 1], [1, 0], [0, -1]]
 var cuadricula = new Array(17)
 var animaciones = []
 var animacion = {}
 
-function posicionValida(posicion){
-    if(posicionExistente(posicion) && 
-        (cuadricula[posicion.i][posicion.j].clase === 'celdaLibre' ||
-        cuadricula[posicion.i][posicion.j].clase === 'celdaConPeso'  ||
-        cuadricula[posicion.i][posicion.j].clase === 'puntoFinal')){
-        return true
-    }else{
-        return false
-    }
-}
 
-function posicionExistente(posicion){
-    if(posicion.i < 17 && posicion.i >= 0 && posicion.j < 38 && posicion.j >= 0) return true
-    else return false
-}
+
 
 function recrearCamino(posicion){
     if(cuadricula[posicion.i][posicion.j].distancia === 0){
@@ -32,7 +20,7 @@ function recrearCamino(posicion){
             posicionSiguiente = {i: posicion.i, j: posicion.j}
             posicionSiguiente.i += movs[aux][0]
             posicionSiguiente.j += movs[aux][1]
-            if(posicionExistente(posicionSiguiente) && cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia ===
+            if(verificadorPosiciones.posicionExistente(posicionSiguiente) && cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia ===
             cuadricula[posicion.i][posicion.j].distancia -1){
                 break
             }
@@ -63,8 +51,6 @@ function bfs(){
                 iAux = i
                 jAux = j
             }
-            console.log(id)
-            console.log(document.getElementById(id))
             cuadricula[i][j] = {id: id, clase: document.getElementById(id).className, distancia: -1}
             id ++
         }
@@ -80,7 +66,7 @@ function bfs(){
             let posicionSiguiente = {i: posicionActual.i, j: posicionActual.j}
             posicionSiguiente.i += movs[aux][0]
             posicionSiguiente.j += movs[aux][1]
-            if(posicionValida(posicionSiguiente)){
+            if(verificadorPosiciones.posicionValida(posicionSiguiente, cuadricula)){
                 cola.push(posicionSiguiente)
                 if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'celdaLibre'){
                     animacion = {}

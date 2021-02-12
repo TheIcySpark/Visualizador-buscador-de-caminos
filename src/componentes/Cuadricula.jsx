@@ -1,6 +1,6 @@
-import './cuadricula.css'
+import './css/cuadricula.css'
 import Celda from './Celda';
-import bfs from './bfs';
+import bfs from './algoritmos/bfs';
 import { useEffect } from 'react';
 
 
