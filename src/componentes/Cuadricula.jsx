@@ -6,7 +6,8 @@ import { useEffect } from 'react';
 
 function mostrarAnimaciones(animaciones, timers, velocidad){
     let aux = 0
-    for(let i = 0;animaciones[i].clase === 'celdaVisitada' || animaciones[i].clase === 'celdaVisitadaConPeso'; i++){
+    for(let i = 0;i < animaciones.length && 
+    (animaciones[i].clase === 'celdaVisitada' || animaciones[i].clase === 'celdaVisitadaConPeso'); i++){
         timers.push(
             setTimeout(() =>{
                 document.getElementById(animaciones[i].posicion).className = animaciones[i].clase

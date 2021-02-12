@@ -17,7 +17,23 @@
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
-    background-color: orange;
+    background-color: #ff9100;
+    height: 35px;
+    width: 100%;
+    transition: background-color 1s;
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+.celdaCaminoConPeso{
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e16428;
+    background-color: #ff9100;
+    background-image: url("peso.svg");
     height: 35px;
     width: 100%;
     transition: background-color 1s;
@@ -32,7 +48,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
-    background-color: yellow;
+    background-color: rgb(255, 217, 0);
     background-image: url("peso.svg");
     height: 35px;
     width: 100%;
@@ -48,7 +64,7 @@
     border-width: 1px;
     border-style: solid;
     border-color: #e16428;
-    background-color: yellow;
+    background-color:rgb(255, 217, 0);
     height: 35px;
     width: 100%;
     transition: background-color 1s;

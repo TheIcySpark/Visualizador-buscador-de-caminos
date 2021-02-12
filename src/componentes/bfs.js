@@ -4,7 +4,7 @@ var animaciones = []
 var animacion = {}
 
 function posicionValida(posicion){
-    if(posicion.i < 17 && posicion.i >= 0 && posicion.j < 38 && posicion.j >= 0 && 
+    if(posicionExistente(posicion) && 
         (cuadricula[posicion.i][posicion.j].clase === 'celdaLibre' ||
         cuadricula[posicion.i][posicion.j].clase === 'celdaConPeso'  ||
         cuadricula[posicion.i][posicion.j].clase === 'puntoFinal')){
@@ -95,7 +95,7 @@ function bfs(){
                     animacion.posicion = cuadricula[posicionSiguiente.i][posicionSiguiente.j].id
                     animacion.clase = 'celdaVisitada'
                     animaciones.push(animacion)
-                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitadaConPeso'
+                    cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase = 'celdaVisitada'
                     cuadricula[posicionSiguiente.i][posicionSiguiente.j].distancia = 
                             cuadricula[posicionActual.i][posicionActual.j].distancia + 1
                 }else if(cuadricula[posicionSiguiente.i][posicionSiguiente.j].clase === 'puntoFinal'){
