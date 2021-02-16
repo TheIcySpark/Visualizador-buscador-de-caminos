@@ -35,6 +35,7 @@ function reiniciarCamino(){
             else if(elemento.className === 'celdaVisitadaConPeso') elemento.className = 'celdaConPeso'
             else if(elemento.className === 'puntoFinalVisitado') elemento.className = 'puntoFinal'
             else if(elemento.className === 'celdaCamino') elemento.className = 'celdaLibre'
+            else if(elemento.className === 'celdaCaminoConPeso') elemento.className = 'celdaConPeso'
         }
     }
 }
