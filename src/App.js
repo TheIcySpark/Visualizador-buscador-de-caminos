@@ -1,6 +1,6 @@
 import BarraSuperior from './componentes/BarraSuperior';
 import Cuadricula from './componentes/Cuadricula';
-import {useSpring, animated, config, useSprings} from 'react-spring'
+import {useSpring, animated} from 'react-spring'
 
 function App() {
     const animacion = useSpring({

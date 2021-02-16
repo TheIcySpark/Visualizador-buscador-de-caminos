@@ -1,6 +1,7 @@
 import './css/cuadricula.css'
 import Celda from './Celda';
 import bfs from './algoritmos/bfs';
+import dijkstra from './algoritmos/dijkstra'
 import { useEffect } from 'react';
 
 
@@ -78,9 +79,8 @@ function Cuadricula() {
             let algoritmo = document.getElementById('selectAlgoritmo').value
             let velocidad = document.getElementById('selectVelocidad').value
             let animaciones 
-            if(algoritmo === 'bfs'){
-                animaciones = bfs();
-            }
+            if(algoritmo === 'bfs') animaciones = bfs();
+            else if(algoritmo === 'dijkstra') animaciones = dijkstra();
             setTimeout(() =>{
                 mostrarAnimaciones(animaciones, timers, velocidad)
             }, 500)
