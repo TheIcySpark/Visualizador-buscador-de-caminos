@@ -45,6 +45,16 @@ function reiniciarCamino(){
     }
 }
 
+function reiniciarCuadricula(){
+    var id = 0
+    for(var i = 0; i < 17; i++){
+        for(var j = 0; j < 38; j++){
+            let elemento = document.getElementById(id++)
+            if(elemento.className !== 'puntoInicio' && elemento.className !== 'puntoFinal') elemento.className = 'celdaLibre'
+        }
+    }
+}
+
 function detenerVisualizacion(timers){
     for(var i = 0; i < timers.length; i++){
         clearTimeout(timers[i])
@@ -99,6 +109,9 @@ function Cuadricula() {
         }
         document.getElementById('botonDetener').onclick = () =>{
             detenerVisualizacion(timers)
+        }
+        document.getElementById('botonReiniciarCuadricula').onclick = () =>{
+            reiniciarCuadricula()
         }
     }, [])
 
