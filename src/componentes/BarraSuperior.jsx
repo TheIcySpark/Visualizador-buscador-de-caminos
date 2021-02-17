@@ -32,11 +32,17 @@ export default class BarraSuperior extends React.Component{
                         lento
                     </option>
                 </select>
-                <DropdownButton title = 'Patron de caminos' className = 'h-50' variant = 'info' id = 'dropdownPatronCaminos'>
-                    <Dropdown.Item>Patron 1</Dropdown.Item>
-                    <Dropdown.Item>Patron 2</Dropdown.Item>
-                    <Dropdown.Item>Patron 3</Dropdown.Item>
-                </DropdownButton>
+                <select className = 'bg-dark text-white  h-50' id = 'selectPatronCaminos'>
+                    <option value = 'patrones'>
+                        Patrones
+                    </option>
+                    <option value = 'laberintoAleatorio'>
+                        Laberinto aleatorio
+                    </option>
+                    <option value = 'laberintoAleatorioPesos'>
+                        Laberinto aleatorio de pesos
+                    </option>
+                </select>
                 <Button className = 'h-50 ' variant = 'info' id = 'botonReiniciarCuadricula'>
                     Reiniciar cuadricula
                 </Button>

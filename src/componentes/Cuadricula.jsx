@@ -3,8 +3,12 @@ import Celda from './Celda';
 import bfs from './algoritmos/bfs';
 import dijkstra from './algoritmos/dijkstra'
 import dfs from './algoritmos/dfs'
+import patronesCaminos from './patronesCaminos'
 import { useEffect } from 'react';
 
+function generarLaberintoAleatorio(){
+    console.log("xd")
+}
 
 function mostrarAnimaciones(animaciones, timers, velocidad){
     if(animaciones.length === 0){
@@ -73,7 +77,7 @@ function intercambioBotonesHabilitados(){
     document.getElementById('selectVelocidad').disabled = !document.getElementById('selectVelocidad').disabled
     document.getElementById('botonReiniciarCuadricula').disabled = !document.getElementById('botonReiniciarCuadricula').disabled
     document.getElementById('botonReiniciarCamino').disabled = !document.getElementById('botonReiniciarCamino').disabled
-    document.getElementById('dropdownPatronCaminos').disabled = !document.getElementById('dropdownPatronCaminos').disabled
+    document.getElementById('selectPatronCaminos').disabled = !document.getElementById('selectPatronCaminos').disabled
 }
 
 function Cuadricula() {
@@ -112,6 +116,15 @@ function Cuadricula() {
         }
         document.getElementById('botonReiniciarCuadricula').onclick = () =>{
             reiniciarCuadricula()
+        }
+        document.getElementById('selectPatronCaminos').onchange = () =>{
+            let valor = document.getElementById('selectPatronCaminos').value
+            if(valor === 'patrones') return
+            reiniciarCamino()
+            reiniciarCuadricula()
+            if(valor === 'laberintoAleatorio') patronesCaminos.laberintoAleatorio()
+            else if(valor === 'laberintoAleatorioPesos') patronesCaminos.laberintoAleatorioPesos()
+            document.getElementById('selectPatronCaminos').value = 'patrones'
         }
     }, [])
 
