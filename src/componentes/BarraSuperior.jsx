@@ -11,6 +11,9 @@ export default class BarraSuperior extends React.Component{
                     <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
                 </div>
                 <select className = 'bg-dark text-white  h-50' id = 'selectAlgoritmo'>
+                    <option value = 'dfs'>
+                        DFS
+                    </option>
                     <option value = 'dijkstra'>
                         Algoritmo de Dijkstra
                     </option>

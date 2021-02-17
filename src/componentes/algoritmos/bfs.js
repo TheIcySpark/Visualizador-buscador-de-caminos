@@ -4,9 +4,6 @@ var cuadricula = new Array(17)
 var animaciones = []
 var animacion = {}
 
-
-
-
 function recrearCamino(posicion){
     if(cuadricula[posicion.i][posicion.j].distancia === 0){
         animacion = {}

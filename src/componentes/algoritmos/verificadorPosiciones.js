@@ -2,7 +2,8 @@ function posicionValida(posicion, cuadricula){
     if(posicionExistente(posicion) && 
         (cuadricula[posicion.i][posicion.j].clase === 'celdaLibre' ||
         cuadricula[posicion.i][posicion.j].clase === 'celdaConPeso'  ||
-        cuadricula[posicion.i][posicion.j].clase === 'puntoFinal')){
+        cuadricula[posicion.i][posicion.j].clase === 'puntoFinal' ||
+        cuadricula[posicion.i][posicion.j].clase === 'puntoInicio')){
         return true
     }else{
         return false
