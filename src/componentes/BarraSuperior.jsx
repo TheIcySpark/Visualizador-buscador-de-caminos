@@ -9,7 +9,8 @@ export default class BarraSuperior extends React.Component{
         return(
             <div className = 'd-flex justify-content-between'>
                 <div className = ''>
-                    <input type = 'image' src = {imagenAyuda} draggable = {false}></input>
+                    
+                    <Tutorial></Tutorial>
                 </div>
                 <select className = 'bg-dark text-white  h-50' id = 'selectAlgoritmo'>
                     <option value = 'dfs'>

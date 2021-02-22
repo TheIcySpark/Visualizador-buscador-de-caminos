@@ -1,5 +1,6 @@
 import { Modal, Button } from 'react-bootstrap';
 import { useState } from 'react'
+import imagenAyuda from '../imagenes/ayudar.png';
 
 function Tutorial() {
     const [show, setShow] = useState(true)
@@ -32,7 +33,11 @@ function Tutorial() {
     ]
 
     return (
-        <div className>
+        <div>
+            <input type = 'image' src = {imagenAyuda} draggable = {false} onClick = {() =>{
+                handleShow()
+            }}>
+            </input>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton className = 'bg-dark'>
                     <Modal.Title>¿Como utilizar la aplicacion?</Modal.Title>

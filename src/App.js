@@ -15,7 +15,6 @@ function App() {
                 <BarraSuperior></BarraSuperior>
             </div>
             <Cuadricula></Cuadricula>
-            <Tutorial></Tutorial>
         </animated.div>
     );
 }
