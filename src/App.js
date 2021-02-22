@@ -1,6 +1,7 @@
 import BarraSuperior from './componentes/BarraSuperior';
 import Cuadricula from './componentes/Cuadricula';
 import {useSpring, animated} from 'react-spring'
+import Tutorial from './componentes/Tutorial'
 
 function App() {
     const animacion = useSpring({
@@ -14,6 +15,7 @@ function App() {
                 <BarraSuperior></BarraSuperior>
             </div>
             <Cuadricula></Cuadricula>
+            <Tutorial></Tutorial>
         </animated.div>
     );
 }

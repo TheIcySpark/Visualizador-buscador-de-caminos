@@ -1,7 +1,8 @@
-import { Button, Dropdown, DropdownButton } from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import React from 'react';
 import imagenAyuda from '../imagenes/ayudar.png';
 import imagenGithub from '../imagenes/github.png';
+import Tutorial from './Tutorial'
 
 export default class BarraSuperior extends React.Component{
     render(){

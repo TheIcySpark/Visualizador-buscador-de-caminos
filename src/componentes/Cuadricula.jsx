@@ -6,9 +6,6 @@ import dfs from './algoritmos/dfs'
 import patronesCaminos from './patronesCaminos'
 import { useEffect } from 'react';
 
-function generarLaberintoAleatorio(){
-    console.log("xd")
-}
 
 function mostrarAnimaciones(animaciones, timers, velocidad){
     if(animaciones.length === 0){
