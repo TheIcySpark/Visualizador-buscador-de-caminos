@@ -1,6 +1,10 @@
 import { Modal, Button } from 'react-bootstrap';
 import { useState } from 'react'
 import imagenAyuda from '../imagenes/ayudar.png';
+import moverPuntos from '../imagenes/gifs/moverPuntos.gif'
+import ponerCeldasLibres from '../imagenes/gifs/ponerCeldasLibres.gif'
+import ponerParedes from '../imagenes/gifs/ponerParedes.gif'
+import ponerPesos from '../imagenes/gifs/ponerPesos.gif'
 
 function Tutorial() {
     const [show, setShow] = useState(true)
@@ -23,12 +27,42 @@ function Tutorial() {
         9: Ir al repositorio del proyecto
         </p>
         ,
-        <p>
-            indice 2
-        </p>
+        <div>
+            <p>
+                click izquierdo para mover los puntos de inicio y fin
+            </p>
+            <img src = {moverPuntos} width = {450}></img>
+        </div>
+        ,
+        <div>
+            <p>
+                click izquierdo para poner paredes
+            </p>
+            <img src = {ponerParedes} width = {450}></img>
+        </div>
+        ,
+        <div>
+            <p>
+                alt + click izquierdo para poner pesos
+                <br></br>
+                Los pesos funcionan con algunos algoritmos, los algoritmos que no los utilizen
+                Ignoraran los pesos y los convertirar en celdas libres <br></br>
+                Algoritmos que utilizan pesos: <br></br>
+                *: Algoritmo de dijkstra
+            </p>
+            <img src = {ponerPesos} width = {450}></img>
+        </div>
+        ,
+        <div>
+            <p>
+                shift + click para convertir las celdas, en celdas vacias
+            </p>
+            <img src = {ponerCeldasLibres} width = {450}></img>
+        </div>
         ,
         <p>
-            indice 3
+            Ya es todo, ahi me reportan los bugs xD, <br></br>
+            Mas algoritmos proximamente xD
         </p>
     ]
 
@@ -38,7 +72,7 @@ function Tutorial() {
                 handleShow()
             }}>
             </input>
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} centered>
                 <Modal.Header closeButton className = 'bg-dark'>
                     <Modal.Title>¿Como utilizar la aplicacion?</Modal.Title>
                 </Modal.Header>
