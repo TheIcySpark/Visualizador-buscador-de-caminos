@@ -61,8 +61,7 @@ function Tutorial() {
         </div>
         ,
         <p>
-            Ya es todo, ahi me reportan los bugs xD, <br></br>
-            Mas algoritmos proximamente xD
+            Ahora utiliza libremente la aplicacion
         </p>
     ]
 
@@ -81,7 +80,7 @@ function Tutorial() {
                 </Modal.Body>
                 <Modal.Footer className = 'bg-dark'>
                     <Button variant = 'danger' onClick = {handleClose}>
-                        PREFIERO RIFARME A LA ANTIGUA
+                        Quitar tutorial
                     </Button>
                     <Button variant="primary" onClick = {() =>{
                         if(indice > 0) setInidice(indice - 1)
