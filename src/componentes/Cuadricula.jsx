@@ -3,6 +3,7 @@ import Celda from './Celda';
 import bfs from './algoritmos/bfs';
 import dijkstra from './algoritmos/dijkstra'
 import dfs from './algoritmos/dfs'
+import a from './algoritmos/a'
 import patronesCaminos from './patronesCaminos'
 import { useEffect } from 'react';
 
@@ -99,7 +100,7 @@ function Cuadricula() {
             if(algoritmo === 'bfs') animaciones = bfs()
             else if(algoritmo === 'dijkstra') animaciones = dijkstra()
             else if(algoritmo === 'dfs') animaciones = dfs()
-            console.log(animaciones)
+            else if(algoritmo === 'a*') animaciones = a()
             setTimeout(() =>{
                 mostrarAnimaciones(animaciones, timers, velocidad)
             }, 500)

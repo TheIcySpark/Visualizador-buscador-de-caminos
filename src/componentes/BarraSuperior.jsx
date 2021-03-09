@@ -22,6 +22,9 @@ export default class BarraSuperior extends React.Component{
                     <option value = 'bfs'>
                         BFS
                     </option>
+                    <option value = 'a*'>
+                        A*
+                    </option>
                 </select>
                 <select className = 'bg-dark text-white  h-50' id = 'selectVelocidad'>
                     <option value = '5'>
